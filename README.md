@@ -2,7 +2,7 @@ This repository will contain the source code to reproduce the results of the pap
 
 "Content representation for Neural Style Transfer Algorithms based on Structural Similarity"
 
-written by [Philip Meier](https://www.th-owl.de/init/en/das-init/team/c/meier-5.html]) and [Volker Lohweg](https://www.th-owl.de/init/en/das-init/team/c/lohweg-1.html]). It will be available after the paper is presented at the [29. Workshop "Computational Intelligence"](http://www.rst.e-technik.tu-dortmund.de/cms/de/Veranstaltungen/GMA-Fachausschuss/index.html) on the 28th and 29th of November 2019 in Dortmund, Germany.
+written by [Philip Meier](https://www.th-owl.de/init/en/das-init/team/c/meier-5.html) and [Volker Lohweg](https://www.th-owl.de/init/en/das-init/team/c/lohweg-1.html). It will be available after the paper is presented at the [29. Workshop "Computational Intelligence"](http://www.rst.e-technik.tu-dortmund.de/cms/de/Veranstaltungen/GMA-Fachausschuss/index.html) on the 28th and 29th of November 2019 in Dortmund, Germany.
 
 # Accepted Abstract
 
