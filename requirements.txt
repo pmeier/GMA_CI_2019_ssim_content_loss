@@ -1,0 +1,10 @@
+requests
+numpy
+pandas
+torch
+pillow
+torchvision
+git+https://github.com/pmeier/torchimagefilter
+git+https://github.com/pmeier/torchssim
+git+https://github.com/pmeier/pystiche
+git+https://github.com/pmeier/pystiche_replication
