@@ -64,7 +64,7 @@ def perform_nst(content_image, style_image, quiet=True, print_steps=None, **kwar
     return output_images[-1]
 
 
-def benchmark_ncr(images_root, data_root, device):
+def benchmark_ncr(images_root, results_root, device):
     target_files = get_npr_general_files()
     ssim_component_weight_ratios = (0.0, 3.0, 9.0, np.inf)
     num_seeds = 5
@@ -105,11 +105,11 @@ def benchmark_ncr(images_root, data_root, device):
 
     columns = ("name", "ssim_loss", "ssim_component_weight_ratio", "seed", "ssim_score")
     df = pd.DataFrame.from_records(data, columns=columns)
-    file = path.join(data_root, "ncr_benchmark.csv")
+    file = path.join(results_root, "ncr_benchmark", "raw.csv")
     df_to_csv(df, file)
 
 
-def evaluate_steady_state(images_root, data_root, device):
+def evaluate_steady_state(images_root, results_root, device):
     target_file = path.join(images_root, get_npr_general_proxy_file())
     num_steps = 200_000
 
@@ -137,12 +137,12 @@ def evaluate_steady_state(images_root, data_root, device):
         df = df[["ssim_score", "loss"]]
         df = df.dropna(axis="index", how="all")
 
-        file = f"{loss_type}.csv"
-        file = path.join(data_root, "steady_state", file)
-        df_to_csv(df, file)
+        file = f"{loss_type.lower()}.csv"
+        file = path.join(results_root, "steady_state", "raw", file)
+        df_to_csv(df, file, index=False)
 
 
-def evaluate_ssim_window(images_root, data_root, device):
+def evaluate_ssim_window(images_root, results_root, device):
     target_file = path.join(images_root, get_npr_general_proxy_file())
     window_types = ("gauss", "box")
     output_shapes = ("same", "valid")
@@ -181,11 +181,11 @@ def evaluate_ssim_window(images_root, data_root, device):
 
     columns = ("window_type", "output_shape", "radius", "seed", "ssim_score")
     df = pd.DataFrame.from_records(data, columns=columns)
-    file = path.join(data_root, "ssim_window.csv")
+    file = path.join(results_root, "ssim_window", "raw.csv")
     df_to_csv(df, file)
 
 
-def benchmark_nst(images_root, data_root, device):
+def benchmark_nst(images_root, results_root, device):
     def process_image(file):
         name = path.splitext(path.basename(file))[0]
         image = read_image(path.join(images_root, file)).to(device)
@@ -208,7 +208,7 @@ def benchmark_nst(images_root, data_root, device):
                     (content_name, style_name, "ssim" if ssim_loss else "se")
                 )
                 output_file = path.join(
-                    data_root, "nst_benchmark", f"{output_file}.jpg"
+                    results_root, "nst_benchmark", f"{output_file}.jpg"
                 )
                 write_image(output_image, output_file)
 
@@ -216,12 +216,11 @@ def benchmark_nst(images_root, data_root, device):
 if __name__ == "__main__":
     root = path.dirname(__file__)
     images_root = path.join(root, "images")
-    data_root = path.join(root, "data")
     results_root = path.join(root, "results")
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-    # benchmark_ncr(images_root, data_root, device)
-    evaluate_steady_state(images_root, data_root, device)
-    # evaluate_ssim_window(images_root, data_root, device)
-    # benchmark_nst(images_root, data_root, device)
+    benchmark_ncr(images_root, results_root, device)
+    evaluate_steady_state(images_root, results_root, device)
+    evaluate_ssim_window(images_root, results_root, device)
+    benchmark_nst(images_root, results_root, device)
