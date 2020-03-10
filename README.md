@@ -10,7 +10,7 @@ If you use this work within a scientific publication, please cite it as
 @InProceedings{ML2019,
   author    = {Meier, Philip and Lohweg, Volker},
   title     = {Content Representation for Neural Style Transfer Algorithms based on Structural Similarity},
-  booktitle = {Proceedings of the 28\textsuperscript{th} Workshop Computational Intelligence},
+  booktitle = {Proceedings of the 29\textsuperscript{th} Workshop Computational Intelligence},
   year      = {2019},
   url       = {https://github.com/pmeier/GMA_CI_2019_ssim_content_loss},
 }
@@ -40,3 +40,4 @@ All results are contained in the `results` folder. If you want to replicate the 
 1. download the source images by running `images.py`,
 2. perform the experiments by running `experiments.py`, and
 3. finally run `process.py` to process the raw experiment results.
+
