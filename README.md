@@ -16,7 +16,7 @@ If you use this work within a scientific publication, please cite it as
 }
 ```
 
-The paper is part the conference proceedings, which are [openly accessible](https://dx.doi.org/10.5445/KSP/1000098736).
+The paper is part the conference proceedings, which are [openly accessible](https://dx.doi.org/10.5445/KSP/1000098736). Unfortunately, the original paper contains several [non-critical mistakes](https://github.com/pmeier/GMA_CI_2019_ssim_content_loss/issues/2). You can find a corrected version [here](https://github.com/pmeier/GMA_CI_2019_ssim_content_loss/blob/master/paper.pdf).
 
 # Installation
 
