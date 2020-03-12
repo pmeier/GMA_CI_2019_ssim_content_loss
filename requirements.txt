@@ -7,4 +7,4 @@ torchvision
 git+https://github.com/pmeier/torchimagefilter@v0.1
 git+https://github.com/pmeier/torchssim@v0.1
 git+https://github.com/pmeier/pystiche@v0.2
-git+https://github.com/pmeier/pystiche_replication@v0.1
+git+https://github.com/pmeier/pystiche_replication@fbc640cee49a7356d1977d53153c91e383a69c73
