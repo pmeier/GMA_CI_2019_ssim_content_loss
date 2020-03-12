@@ -28,7 +28,7 @@ and install the required packages
 
 ```
 cd GMA_CI_2019_ssim_content_loss
-pip install -r requirements
+pip install -r requirements.txt
 ```
 
 If you experience problems while installing `torch` or `torchvision`, please follow the [official installation instructions](https://pytorch.org/get-started/locally/) for your setup.
